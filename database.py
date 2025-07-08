@@ -3,7 +3,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/stock_data"
+URL = "mysql+pymysql://root:34793479@192.168.5.23:3306/"
+
+DATABASE_URL = URL + "stock_data"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -17,7 +19,7 @@ def get_db():
         db.close()
 
 
-PUBLIC_SENTIMENT_DATABASE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/public_sentiment"
+PUBLIC_SENTIMENT_DATABASE_URL = URL + "public_sentiment"
 
 engine2 = create_engine(PUBLIC_SENTIMENT_DATABASE_URL)
 SessionLocal2 = sessionmaker(autocommit=False, autoflush=False, bind=engine2)
@@ -29,7 +31,7 @@ def get_sentiment_db():
     finally:
         db.close()
 
-PUBLIC_SECTOR_DATABASE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/sector"
+PUBLIC_SECTOR_DATABASE_URL = URL + "sector"
 
 engine3 = create_engine(PUBLIC_SECTOR_DATABASE_URL)
 SessionLocal3 = sessionmaker(autocommit=False, autoflush=False, bind=engine3)
@@ -41,7 +43,7 @@ def get_sector_db():
     finally:
         db.close()
 
-ANALYSIS_REPORT_DATABASE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/report"
+ANALYSIS_REPORT_DATABASE_URL = URL + "report"
 
 engine4 = create_engine(ANALYSIS_REPORT_DATABASE_URL)
 SessionLocal4 = sessionmaker(autocommit=False, autoflush=False, bind=engine4)
@@ -53,7 +55,7 @@ def get_analysis_db():
     finally:
         db.close()
 
-SECTOR_DATA_DATABASE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/sector_data"
+SECTOR_DATA_DATABASE_URL = URL + "sector_data"
 
 engine5 = create_engine(SECTOR_DATA_DATABASE_URL)
 SessionLocal5 = sessionmaker(autocommit=False, autoflush=False, bind=engine5)
@@ -66,7 +68,7 @@ def get_sector_data_db():
         db.close()
 
 
-SECTOR_STOCK_INFO_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/stock_info"
+SECTOR_STOCK_INFO_URL = URL + "stock_info"
 engine6 = create_engine(SECTOR_STOCK_INFO_URL)
 
 SessionLocal6 = sessionmaker(autocommit=False, autoflush=False, bind=engine6)
@@ -81,7 +83,7 @@ def get_stock_info_db():
 
 # ====================
 # 事件的数据库
-SECTOR_EVENT_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/event"
+SECTOR_EVENT_URL = URL + "event"
 engine_event = create_engine(SECTOR_EVENT_URL)
 
 SessionLocal_EVENT = sessionmaker(autocommit=False, autoflush=False, bind=engine_event)
@@ -95,7 +97,7 @@ def get_event_db():
 
 # ====================
 # 资产负债的数据库
-SECTOR_FINANCIAL_BALANCE_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/financial_balance"
+SECTOR_FINANCIAL_BALANCE_URL = URL + "financial_balance"
 engine_financial_balance = create_engine(SECTOR_FINANCIAL_BALANCE_URL)
 
 SessionLocal_FINANCIAL_BALANCE = sessionmaker(autocommit=False, autoflush=False, bind=engine_financial_balance)
@@ -109,7 +111,7 @@ def get_financial_balance_db():
 
 # ====================
 # 现金流量表的数据库
-SECTOR_FINANCIAL_CASHFLOW_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/financial_cashflow"
+SECTOR_FINANCIAL_CASHFLOW_URL = URL + "financial_cashflow"
 engine_financial_cashflow = create_engine(SECTOR_FINANCIAL_CASHFLOW_URL)
 
 SessionLocal_FINANCIAL_CASHFLOW = sessionmaker(autocommit=False, autoflush=False, bind=engine_financial_cashflow)
@@ -124,7 +126,7 @@ def get_financial_cashflow_db():
 
 # ====================
 # 现金流量表的数据库
-SECTOR_FINANCIAL_PROFIT_URL = "mysql+pymysql://root:34793479@192.168.5.2:3306/financial_profit"
+SECTOR_FINANCIAL_PROFIT_URL = URL + "financial_profit"
 engine_financial_profit = create_engine(SECTOR_FINANCIAL_PROFIT_URL)
 
 SessionLocal_FINANCIAL_PROFIT = sessionmaker(autocommit=False, autoflush=False, bind=engine_financial_profit)
